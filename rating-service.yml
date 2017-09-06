@@ -17,6 +17,10 @@ spring:
 #	cloud:
 #		config:
 #			uri: http://localhost:8080/
+## change media type of spring-data-rest
+    data:
+        rest:
+            defaultMediaType: application/json
 
 application:
     finalName: rating-service-dev
