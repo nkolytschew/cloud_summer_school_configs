@@ -9,12 +9,12 @@ zuul:
 ##  Uncomment to disable auto-registering all services read from Eureka
     ignoredServices: '*'
     routes:
-        configuration-service:
-            path: /api/configuration-service-dev/**
+        post-service:
+            path: /api/post-service-dev/**
 #            user eureka serviceId instead of url
 ##            url: http://localhost:9080
-            serviceId: configuration-service
-#            prefix necessary, because of server:contextPath
+            serviceId: post-service
+#            prefix necessary, because of server.contextPath
             stripPrefix: false
         rating-service:
             path: /api/rating-service-dev/**
@@ -23,8 +23,4 @@ zuul:
         web-client:
             path: /**
             serviceId: web-client
-            stripPrefix: false
-        auth-service:
-            path: /uaa/auth-service-dev/**
-            serviceId: auth-service
             stripPrefix: false

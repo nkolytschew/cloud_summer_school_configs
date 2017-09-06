@@ -2,5 +2,36 @@
 
 server:
     port: ${PORT:3010}
+    contextPath: /api/${application.finalName}
 
 ## config database
+
+# config app
+## Spring Cloud - Config Server
+## give name for discovery
+spring:
+    application:
+        name: rating-service
+## URI to config-server
+# spring:
+#	cloud:
+#		config:
+#			uri: http://localhost:8080/
+
+application:
+    finalName: rating-service-dev
+
+# disable security for actuator
+## only for dev
+management:
+    security:
+        enabled: false
+
+# setup eureka if context-path is used
+eureka:
+    instance:
+        metadataMap:
+            management:
+                context-path: ${server.contextPath}
+        statusPageUrlPath: ${server.contextPath}/info
+        healthCheckUrlPath: ${server.contextPath}/health

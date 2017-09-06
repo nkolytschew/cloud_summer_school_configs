@@ -4,3 +4,24 @@ server:
     port: ${PORT:3030}
 
 ## config database
+
+# config app
+## Spring Cloud - Config Server
+## give name for discovery
+spring:
+    application:
+        name: web-client
+## URI to config-server
+# spring:
+#	cloud:
+#		config:
+#			uri: http://localhost:8080/
+
+application:
+    finalName: ${spring.application.name}-dev
+
+# disable security for actuator
+## only for dev
+management:
+    security:
+        enabled: false
